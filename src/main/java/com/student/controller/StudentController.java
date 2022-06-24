@@ -22,6 +22,8 @@ public class StudentController {
 	@Autowired
 	StudentService service;
 
+	
+	//Creating Student 
 	@PostMapping(value = "/save")
 	public ResponseEntity<Student> saveStudent(@RequestBody Student student) {
 
@@ -34,6 +36,7 @@ public class StudentController {
 
 	}
 
+	//Fetching Student
 	@GetMapping(value = "/getStudentById/{studentId}")
 	public ResponseEntity<Student> getStudentById(@PathVariable Integer studentId) {
 		Student std = service.getStudentById(studentId);
@@ -46,7 +49,9 @@ public class StudentController {
 		}
 
 	}
-
+	
+	
+//Deleting Student
 	@DeleteMapping(value = "/deleteStudentById/{studentId}")
 	public ResponseEntity<Boolean> deleteStudent(@PathVariable Integer studentId) {
 		Boolean flag = service.deleteStudent(studentId);
@@ -58,6 +63,7 @@ public class StudentController {
 		}
 	}
 
+	//Updating Student
 	@PostMapping(value = "/updateStudent")
 	public ResponseEntity<Student> updateStudent(@RequestBody Student student) {
 
@@ -69,6 +75,7 @@ public class StudentController {
 		}
 	}
 
+	//Fething all students
 	@GetMapping("/getStudentBybranchbyId/{studentId}")
 	public ResponseEntity<Student_Branch> getStudentBybranchbyId(@PathVariable Integer studentId) {
 		Student_Branch student_branch = service.getStudentBybranchbyId(studentId);
